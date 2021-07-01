@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block content %} 
+{% load static %}
+
+<div class="container-cover">
+<div class="container ">
+  <div class="row justify-content-center">
+  <div class="col-lg-8 ">
+
+    {% if messages %}
+    {% for message in messages %}
+    {% if message.tags == "error" %}
+      <div class="alert alert-danger  mb-5" role="alert">
+    {{message}}
+    </div>
+    {% else %}
+    <div class="alert alert-success">
+      {{ message }}
+    </div>
+    {% endif %}
+  {% endfor %}
+  {% endif %}
+
+</div>
+</div>
+<div class="container-cover">
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <h3>Upload File</h3>
+        <form method="post" action="/save_file" enctype="multipart/form-data"> {% csrf_token %}
+          <div class="control-group form-group">
+            <div class="controls">
+              {% if form.errors.keys%}
+                 <div class="alert alert-danger text-sm p-3 alert-cost" role="alert">{{form.errors.keys }}</div> 
+               {% endif %}
+              <label >Keyword </label>
+              <input type="text" class="form-control" name="keywords" placeholder=" you are allowed to enter max 5 keywords!" data-validation-required-message="Please enter  maximum 5 keywords.">
+              </div>
+            </div>
+          <div class="control-group form-group">
+          {% if form.errors.docfile%}
+              <div class="alert alert-danger text-sm" role="alert">{{form.errors.docfile }}</div> 
+               {% endif %}
+              <div class="controls">
+              <label><p class="text-sm file-upload-text" >*Only  the files with .pdf and .docx extensions are accepted</p> </label>
+              <input type="file" required name="document" class="input-group mb-3" />
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary" >Upload File</button>
+        </form>
+      </div>
+    </div>
+</div>
+</div>
+</div>
+
+{% endblock %}
+
+
