@@ -1,4 +1,4 @@
-# File Upload App - Coding Challange
+# Django-_Dropping_Word_App 
 
 ## Features
 
@@ -19,8 +19,8 @@
 First clone the repository from Github and switch to the new directory:
 
 ```
-$ git clone https://github.com/fyrfeed/cc01-smo.git
-$ cd cc01-smo
+$ git clone https://github.com/Django-_Dropping_Word_App 
+$ cd Django-_Dropping_Word_App 
 
 ```
 
